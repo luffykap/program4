@@ -29,7 +29,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'java -jar target/kapil-1.0-SNAPSHOT.jar'
+                sh 'mvn exec:java -Dexec.mainClass="com.luffy.App"'
             }
         }
     }
