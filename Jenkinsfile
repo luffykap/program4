@@ -32,6 +32,11 @@ pipeline {
                 sh 'mvn exec:java -Dexec.mainClass="com.luffy.App"'
             }
         }
+        stage('Verify') {
+    steps {
+        sh 'cat destination.txt'
+    }
+}
     }
 
     post {
