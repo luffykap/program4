@@ -37,6 +37,11 @@ pipeline {
         sh 'cat destination.txt'
     }
 }
+        stage('Git Status') {
+    steps {
+        sh 'git status'
+    }
+}
     }
 
     post {
