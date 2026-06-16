@@ -32,14 +32,19 @@ pipeline {
                 sh 'mvn exec:java -Dexec.mainClass="com.luffy.App"'
             }
         }
-        stage('Verify') {
+      
+        stage('Commit Changes') {
     steps {
-        sh 'cat destination.txt'
-    }
-}
-        stage('Git Status') {
-    steps {
-        sh 'git status'
+        sh '''
+            git config user.email "luffykapill@gmail.com"
+            git config user.name "luffykap"
+
+            git add destination.txt
+
+            git status
+
+            git commit -m "Update destination file" || true
+        '''
     }
 }
     }
